@@ -41,7 +41,7 @@ async function checkForUpdate(deploymentKey = null, handleBinaryVersionMismatchC
    * in any updates for current binary version, regardless of hash.
    */
   let queryPackage;
-  if (localPackage) {
+  if (localPackage && config.appVersion === localPackage.appVersion) {
     queryPackage = localPackage;
   } else {
     queryPackage = { appVersion: config.appVersion };
